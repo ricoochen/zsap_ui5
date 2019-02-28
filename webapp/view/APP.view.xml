@@ -1,9 +1,77 @@
-<mvc:View controllerName="zsap_ui.controller.APP" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-	xmlns="sap.m">
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" controllerName="zsap_ui.controller.APP" displayBlock="true">
 	<App>
 		<pages>
-			<Page title="{i18n>title}">
-				<content></content>
+			<Page title="{i18n>app_header_title}" id="PG_SEARCH">
+			<content>
+			    <Panel xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" id="__panel0" headerText="{i18n>app_panel_title}">
+			    <content>
+			        <sap.ui.layout.form:Form xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" id="__form2">
+			            <sap.ui.layout.form:formContainers>
+			                <sap.ui.layout.form:FormContainer id="__container2">
+			                    <sap.ui.layout.form:formElements>
+			                        <sap.ui.layout.form:FormElement id="__element2" label="{i18n>app_panel_lable_usrid}">
+			                            <sap.ui.layout.form:fields>
+											<Input id="productInput" type="Text" width="auto" textFormatMode="KeyValue" placeholder="Enter User ID..." showSuggestion="true" showValueHelp="true" valueHelpRequest="handleValueHelp" suggestionItems="{/ZUSERSet}" suggestionItemSelected="suggestionItemSelected">
+												<suggestionItems>
+													<core:ListItem key="{Usrid}" text="{Usrname}" additionalText="{Usrid}"/>
+												</suggestionItems>
+											</Input>
+			                                <Button xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" width="auto" id="app_panel_button_read" icon="sap-icon://search" text="{i18n>app_panel_button_search}" press="onRead"/>
+			                                
+			                            </sap.ui.layout.form:fields>
+			                            
+			                        </sap.ui.layout.form:FormElement>
+			                        
+			                    </sap.ui.layout.form:formElements>
+			                    
+			                </sap.ui.layout.form:FormContainer>
+			                
+			            </sap.ui.layout.form:formContainers>
+			            <sap.ui.layout.form:layout>
+			                <sap.ui.layout.form:ResponsiveGridLayout id="__layout2"/>
+			                
+			            </sap.ui.layout.form:layout>
+			            </sap.ui.layout.form:Form>
+			    </content>
+			    </Panel>
+			    <Table xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" noDataText="No data" id="idTable" items="{path:'/ZUSERSet'}">
+			        <items>
+		                <ColumnListItem type="Navigation" press="onItemPress">
+                            <cells>
+                                <Text text="{Usrid}"/>
+                                <Text text="{Usrname}"/>
+                                <Text text="{Usraddr}"/>
+                            </cells>
+                        </ColumnListItem>
+			        </items>
+			        <columns>
+			            <Column id="__column0">
+			                <header>
+			                    <Label id="lUsrid" text="{i18n>app_table_header_usrid}"/>
+			                </header>
+			            </Column>
+			            <Column id="__column1">
+			                <header>
+			                    <Label text="{i18n>app_table_header_usrname}" id="lUsrname"/>
+			                </header>
+			            </Column>
+			            <Column id="__column2">
+			                <header>
+			                    <Label text="{i18n>app_table_header_usraddr}" id="lUsraddr"/>
+			                </header>
+			            </Column>
+			            </columns>
+			        </Table>
+			</content>
+			   <footer>
+                    <Bar>
+                        <contentRight>
+                            <Button icon="sap-icon://create" text="Create" press="onCreate"/>
+                            <Button icon="sap-icon://edit" text="Edit" press="onEdit"/>
+                            <Button icon="sap-icon://delete" text="Delete" press="onDelete"/>
+                        </contentRight>
+                    </Bar>
+                </footer>
 			</Page>
 		</pages>
 	</App>

@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog id="UsrDialog" title="{i18n>usrdialog_header_title}">
+		<f:SimpleForm>
+			<Label text="{i18n>usrdialog_lable_usrid}"/>
+			<Input id="Usrid" value="{Usrid}"/>
+			<Label text="{i18n>usrdialog_lable_usrname}"/>
+			<Input id="Usrname" value="{Usrname}"/>
+			<Label text="{i18n>usrdialog_lable_usraddr}"/>
+			<Input id="Usraddr" value="{Usraddr}"/>
+		</f:SimpleForm>
+		<Toolbar>
+			<ToolbarSpacer/>
+			<Button id="SaveCreate" text="Save"/>
+			<Button id="SaveEdit" text="Save Edit"/>
+			<Button id="CancelButton" text="Cancel"/>
+		</Toolbar>
+	</Dialog>
+</core:FragmentDefinition>

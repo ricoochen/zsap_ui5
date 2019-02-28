@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="{i18n>inputusriddialog_header_title}"
+		class="sapUiPopupWithPadding"
+		items="{/ZUSERSet}"
+		search="_handleValueHelpSearch"
+		confirm="_handleValueHelpClose"
+		cancel="_handleValueHelpClose">
+		<StandardListItem
+			title="{Usrid}{Usrname}"
+			description="{Usrid}" />
+	</SelectDialog>
+</core:FragmentDefinition>
